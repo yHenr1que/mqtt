@@ -8,6 +8,7 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     #envia o post
     print(msg.topic+" "+str(msg.payload))
+    requests.post('http://localhost:8000/inserir', data=(json.dumps({ "message":str(msg.payload.decode())})))
 
 client = mqtt.Client()
 client.on_connect = on_connect

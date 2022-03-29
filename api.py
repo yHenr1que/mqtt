@@ -1,5 +1,4 @@
 import json
-import flask
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
@@ -18,8 +17,7 @@ def inserir_mensagem():
 
 def historico():
   global messageArray
-  return jsonify(messageArray)
+  return json.dumps(messageArray)
 
 
 app.run()
-  #new_message = Message(conteudo)
